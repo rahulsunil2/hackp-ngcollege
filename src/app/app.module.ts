@@ -10,6 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -34,6 +37,9 @@ import { DepartmentComponent } from './pages/department/department.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
+    MatSidenavModule,
+    MatTableModule,
+    MatSortModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
