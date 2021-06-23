@@ -2,10 +2,22 @@ h1 {
     text-align: center;
 }
 
+mat-form-field {
+    margin: auto;
+}
+
 table {
     width: 80%;
     margin: auto;
-    th.mat-sort-header-sorted {
-        color: black;
+    .table-head {
+        color: blue;
+    }
+    th,
+    td {
+        text-align: left;
+        padding: 1em;
+        .mat-sort-header-sorted {
+            color: black;
+        }
     }
 }

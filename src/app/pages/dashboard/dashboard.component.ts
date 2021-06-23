@@ -1,6 +1,5 @@
-import { AfterViewInit, ViewChild, Component } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 
 export interface StudentDetail {
   firstName: string;
@@ -10,47 +9,57 @@ export interface StudentDetail {
   department: string;
 }
 
-const Students: StudentDetail[] = [
-  {
-    firstName: 'Rahul',
-    lastName: 'Sunil',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-  {
-    firstName: 'Kesia',
-    lastName: 'Joies',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-  {
-    firstName: 'Devika',
-    lastName: 'Nair',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-];
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements AfterViewInit {
-  displayedColumns: string[] = [
-    'firstName',
-    'lastName',
-    'class',
-    'address',
-    'department',
+export class DashboardComponent {
+  students: StudentDetail[] = [
+    {
+      firstName: 'Rahul',
+      lastName: 'Sunil',
+      class: 'S6',
+      address: 'Trivandrum',
+      department: 'CSE',
+    },
+    {
+      firstName: 'Ajay',
+      lastName: 'John',
+      class: 'S6',
+      address: 'Trivandrum',
+      department: 'CSE',
+    },
   ];
-  dataSource = new MatTableDataSource(Students);
+  sortedData: StudentDetail[];
+  search: string;
 
-  @ViewChild(MatSort) sort: MatSort;
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
+  constructor() {
+    this.sortedData = this.students.slice();
+    this.search = '';
   }
+
+  sortData(sort: Sort) {
+    const data = this.students.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'firstName':
+          return compare(a.firstName, b.firstName, isAsc);
+        case 'lastName':
+          return compare(a.lastName, b.lastName, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
+}
+
+function compare(a: number | string, b: number | string, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
