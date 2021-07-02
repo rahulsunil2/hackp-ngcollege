@@ -1,8 +1,10 @@
 <mat-toolbar color="primary">
     <span>NgCollege</span>
     <span class="example-spacer"></span>
+    <span>{{ headerName }}</span>
+    <span class="example-spacer"></span>
     <div class="example-sidenav-content">
-        <a color="primary" mat-flat-button routerLink="/" routerLinkActive="mat-accent">Login</a
+        <a color="primary" mat-flat-button [routerLinkActiveOptions]="{ exact: true }" routerLink="/" routerLinkActive="mat-accent">Login</a
     >
     <a
       color="primary"

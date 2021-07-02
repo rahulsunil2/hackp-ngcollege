@@ -3,7 +3,8 @@ h1 {
 }
 
 mat-form-field {
-    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 table {

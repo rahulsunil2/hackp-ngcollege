@@ -1,1 +1,23 @@
-<p>department works!</p>
+<h1>Departments</h1>
+<mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let department of departments">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ department.deptName }} Team</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h3>
+                    Head of the Department: <span>{{ department.HOD }}</span>
+                </h3>
+                <table>
+                    <tr>
+                        <th>Students</th>
+                    </tr>
+                    <tr *ngFor="let student of department.students">
+                        <td>{{ student }}</td>
+                    </tr>
+                </table>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
