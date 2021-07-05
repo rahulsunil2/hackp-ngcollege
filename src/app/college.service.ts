@@ -7,13 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class CollegeService {
-
-  private departments: DepartmentDetails[] = [];
-
   constructor(private http: HttpClient) {}
 
   public getStudents(): Observable<any> {
     return this.http
       .get<Array<StudentDetail>>('http://01ove.mocklab.io/getStudents')
+  }
+
+  public getDepartments(): Observable<any> {
+    return this.http
+      .get<Array<DepartmentDetails>>('http://01ove.mocklab.io/getDepartments')
   }
 }

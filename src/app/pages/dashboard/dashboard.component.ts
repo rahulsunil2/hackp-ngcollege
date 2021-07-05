@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { StudentDetail } from '../college.model';
-import { CollegeService } from 'src/app/college.service';
+import { CollegeService } from '../../college.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,13 +20,12 @@ export class DashboardComponent {
   public dataSource: MatTableDataSource<StudentDetail>;
   private students: StudentDetail[] = [];
 
-  constructor(public collegeService: CollegeService) {
+  constructor(private collegeService: CollegeService) {
     this.dataSource = new MatTableDataSource(this.students);
     this.collegeService.getStudents()
     .subscribe((studentsData) => {
         this.students = studentsData.students;
         this.dataSource = new MatTableDataSource(this.students);
-        console.log(this.dataSource);
     });
   }
 

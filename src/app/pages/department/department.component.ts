@@ -1,20 +1,6 @@
 import { Component } from '@angular/core';
 import { DepartmentDetails } from '../college.model';
-
-const departmentList: DepartmentDetails[] = [
-  {
-    deptCode: 'FE',
-    deptName: 'Front End',
-    HOD: 'Aswin',
-    students: ['Ajay', 'Ebin', 'Rahul'],
-  },
-  {
-    deptCode: 'DO',
-    deptName: 'DevOps',
-    HOD: 'Anees',
-    students: ['Abin', 'Rahul'],
-  },
-];
+import { CollegeService } from '../../college.service';
 
 @Component({
   selector: 'app-department',
@@ -22,5 +8,11 @@ const departmentList: DepartmentDetails[] = [
   styleUrls: ['./department.component.scss'],
 })
 export class DepartmentComponent {
-  departments = departmentList;
+    public departments: DepartmentDetails[] = [];
+    constructor(private collegeService: CollegeService){
+        this.collegeService.getDepartments()
+        .subscribe((departmentsData) => {
+            this.departments = departmentsData.departments;
+        })
+    }
 }
