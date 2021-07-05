@@ -1,0 +1,15 @@
+{
+    "students": [{
+            "deptCode": "FE",
+            "deptName": "Front End",
+            "HOD": "Aswin",
+            "students": ["Ajay", "Ebin", "Rahul"]
+        },
+        {
+            "deptCode": "DO",
+            "deptName": "DevOps",
+            "HOD": "Anees",
+            "students": ["Abin", "Rahul"]
+        }
+    ]
+}

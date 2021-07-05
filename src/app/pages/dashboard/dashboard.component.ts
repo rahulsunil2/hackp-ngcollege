@@ -1,13 +1,32 @@
-import { Component } from '@angular/core';
-import { Sort } from '@angular/material/sort';
+import { Component, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { StudentDetail } from '../college.model';
+import { CollegeService } from 'src/app/college.service';
 
-export interface StudentDetail {
-  firstName: string;
-  lastName: string;
-  class: string;
-  address: string;
-  department: string;
-}
+const studentsTemp: StudentDetail[] = [
+  {
+    firstName: 'Rahul',
+    lastName: 'Sunil',
+    class: 'S6',
+    address: 'Trivandrum',
+    department: 'CSE',
+  },
+  {
+    firstName: 'Ajay',
+    lastName: 'John',
+    class: 'S6',
+    address: 'Trivandrum',
+    department: 'CSE',
+  },
+  {
+    firstName: 'Abin',
+    lastName: 'Joseph',
+    class: 'S6',
+    address: 'Trivandrum',
+    department: 'CSE',
+  },
+];
 
 @Component({
   selector: 'app-dashboard',
@@ -15,51 +34,28 @@ export interface StudentDetail {
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
-  students: StudentDetail[] = [
-    {
-      firstName: 'Rahul',
-      lastName: 'Sunil',
-      class: 'S6',
-      address: 'Trivandrum',
-      department: 'CSE',
-    },
-    {
-      firstName: 'Ajay',
-      lastName: 'John',
-      class: 'S6',
-      address: 'Trivandrum',
-      department: 'CSE',
-    },
+  public displayedColumns: string[] = [
+    'firstName',
+    'lastName',
+    'class',
+    'address',
+    'department',
   ];
-  sortedData: StudentDetail[];
-  search: string;
+  public dataSource: MatTableDataSource<StudentDetail>;
 
-  constructor() {
-    this.sortedData = this.students.slice();
-    this.search = '';
+  constructor(public collegeService: CollegeService) {
+    this.dataSource = new MatTableDataSource(studentsTemp);
+    console.log(this.collegeService.getStudents());
   }
 
-  sortData(sort: Sort) {
-    const data = this.students.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
-      return;
-    }
-
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'asc';
-      switch (sort.active) {
-        case 'firstName':
-          return compare(a.firstName, b.firstName, isAsc);
-        case 'lastName':
-          return compare(a.lastName, b.lastName, isAsc);
-        default:
-          return 0;
-      }
-    });
+  public applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
-}
 
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  @ViewChild(MatSort) sort!: MatSort;
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+  }
 }

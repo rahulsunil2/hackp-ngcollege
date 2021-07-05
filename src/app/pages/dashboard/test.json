@@ -1,0 +1,24 @@
+{
+  "students": [{
+      "firstName": "Rahul",
+      "lastName": "Sunil",
+      "class": "S6",
+      "address": "Trivandrum",
+      "department": "CSE"
+    },
+    {
+      "firstName": "Ajay",
+      "lastName": "John",
+      "class": "S6",
+      "address": "Trivandrum",
+      "department": "CSE"
+    },
+    {
+      "firstName": "Abin",
+      "lastName": "Joseph",
+      "class": "S6",
+      "address": "Trivandrum",
+      "department": "CSE"
+    }
+  ]
+}
