@@ -4,30 +4,6 @@ import { MatTableDataSource } from '@angular/material/table';
 import { StudentDetail } from '../college.model';
 import { CollegeService } from 'src/app/college.service';
 
-const studentsTemp: StudentDetail[] = [
-  {
-    firstName: 'Rahul',
-    lastName: 'Sunil',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-  {
-    firstName: 'Ajay',
-    lastName: 'John',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-  {
-    firstName: 'Abin',
-    lastName: 'Joseph',
-    class: 'S6',
-    address: 'Trivandrum',
-    department: 'CSE',
-  },
-];
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -42,10 +18,16 @@ export class DashboardComponent {
     'department',
   ];
   public dataSource: MatTableDataSource<StudentDetail>;
+  private students: StudentDetail[] = [];
 
   constructor(public collegeService: CollegeService) {
-    this.dataSource = new MatTableDataSource(studentsTemp);
-    console.log(this.collegeService.getStudents());
+    this.dataSource = new MatTableDataSource(this.students);
+    this.collegeService.getStudents()
+    .subscribe((studentsData) => {
+        this.students = studentsData.students;
+        this.dataSource = new MatTableDataSource(this.students);
+        console.log(this.dataSource);
+    });
   }
 
   public applyFilter(filterValue: string) {
