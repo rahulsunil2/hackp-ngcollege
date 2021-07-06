@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit{
   headerName: string;
+  opened = false;
   constructor(private activatedroute: ActivatedRoute) {
     this.headerName = '';
   }
@@ -17,5 +18,9 @@ export class HeaderComponent implements OnInit{
       this.headerName = data.name;
       console.log(this.headerName);
     });
+  }
+  @Output() toggle = new EventEmitter();
+  toggleSidenav(){
+      this.toggle.emit(this.opened);
   }
 }

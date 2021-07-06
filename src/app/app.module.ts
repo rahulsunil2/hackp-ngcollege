@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { HttpClientModule } from '@angular/common/http';
 
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './partials/header/header.component';
+import { SideNavComponent } from './partials/sidenav/sidenav.component';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DepartmentComponent } from './pages/department/department.component';
@@ -19,6 +20,7 @@ import { DepartmentComponent } from './pages/department/department.component';
     LoginComponent,
     DashboardComponent,
     DepartmentComponent,
+    SideNavComponent
   ],
   imports: [
     BrowserModule,
