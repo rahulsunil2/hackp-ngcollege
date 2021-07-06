@@ -6,14 +6,16 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
   headerName: string;
   constructor(private activatedroute: ActivatedRoute) {
     this.headerName = '';
   }
   ngOnInit() {
+      console.log(this.activatedroute.snapshot.params.myParam)
     this.activatedroute.data.subscribe((data) => {
       this.headerName = data.name;
+      console.log(this.headerName);
     });
   }
 }

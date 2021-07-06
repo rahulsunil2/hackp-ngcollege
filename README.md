@@ -1,27 +1,35 @@
-# NgCollege
+## NgCollege:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+### Login Page
+    [ ] Login screen with
+        + Username (type text)
+        + Password (type password)
+        + Login Button: Enabled only if the user enters a username and a password
+    [ ] On Login button, user should be navigated to a Dashboard
 
-## Development server
+### Dashboard
+    [ ] A table for listing student details (Use Angular Material Table)
+        + First Name
+        + Last Name
+        + Class
+        + Address
+        + Department (ECE, CS, IT, Mechanical)
+    [ ] Text search for searching a student with First name / Last name.
+    [ ] A drop down for filtering with department.
+    [ ] Sort option with First Name and Last Name students with alphabetical order.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Departments
+    [ ] It should display all the departments with the following details
+        + Department name
+        + Department HOD
+        + Number of students in the department
+    [ ] The departments should be shown as card with the department details
 
-## Code scaffolding
+### Side Menu
+    [ ] There should be a side menu which will be shown in all pages other than the login with the following menu items
+        + Dashboard – When user clicks on the Dashboard, it should navigate to the dashboard page
+        + Departments – When user clicks on Departments, It should navigate to department page
+        + Logout – When user clicks on Logout, the user will navigate to login page.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Header
+    [ ] Application name along with the Page name should be shown in the header.
