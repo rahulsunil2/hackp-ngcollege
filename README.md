@@ -16,7 +16,7 @@
     + Department (ECE, CS, IT, Mechanical)
 - [x] Text search for searching a student with First name / Last name.
 - [ ] A drop down for filtering with department.
-- [-] Sort option with First Name and Last Name students with alphabetical order.
+- [ ] Sort option with First Name and Last Name students with alphabetical order.
 
 ### Departments
 - [x] It should display all the departments with the following details
