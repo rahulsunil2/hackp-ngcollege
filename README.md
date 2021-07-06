@@ -1,11 +1,11 @@
-## NgCollege:
+## NgCollege
 
 ### Login Page
 - [x] Login screen with
     + Username (type text)
     + Password (type password)
     + Login Button: Enabled only if the user enters a username and a password
-- [ ] On Login button, user should be navigated to a Dashboard
+- [x] On Login button, user should be navigated to a Dashboard
 
 ### Dashboard
 - [x] A table for listing student details
@@ -33,3 +33,7 @@
 
 ### Header
 - [ ] Application name along with the Page name should be shown in the header.
+
+### Service
+- [x] Students API
+- [x] Departments API 
