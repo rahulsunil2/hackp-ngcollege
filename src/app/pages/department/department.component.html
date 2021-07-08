@@ -1,23 +1,27 @@
-<h1>Departments</h1>
-<mat-grid-list cols="4">
+<div class="container">
+  <h1>Departments</h1>
+  <mat-grid-list cols="3"
+                 rowHeight="2:1">
     <mat-grid-tile *ngFor="let department of departments">
-        <mat-card class="example-card">
-            <mat-card-header>
-                <mat-card-title>{{ department.deptName }} Team</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <h3>
-                    Head of the Department: <span>{{ department.HOD }}</span>
-                </h3>
-                <table>
-                    <tr>
-                        <th>Students</th>
-                    </tr>
-                    <tr *ngFor="let student of department.students">
-                        <td>{{ student }}</td>
-                    </tr>
-                </table>
-            </mat-card-content>
-        </mat-card>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ department.deptName }} Team</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <h3>
+            Head of the Department: <span>{{ department.HOD }}</span>
+          </h3>
+          <h3>No: of Students: {{ department.students.length}}</h3>
+          <table>
+            <tr>
+              <th>Students</th>
+            </tr>
+            <tr *ngFor="let student of department.students">
+              <td>{{ student }}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+      </mat-card>
     </mat-grid-tile>
-</mat-grid-list>
+  </mat-grid-list>
+</div>

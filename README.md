@@ -26,14 +26,15 @@
 - [x] The departments should be shown as card with the department details
 
 ### Side Menu
-- [ ] There should be a side menu which will be shown in all pages other than the login with the following menu items
+- [x] Side Menu
     + Dashboard – When user clicks on the Dashboard, it should navigate to the dashboard page
     + Departments – When user clicks on Departments, It should navigate to department page
     + Logout – When user clicks on Logout, the user will navigate to login page.
+- [ ] Side Menu should be hidden in login page.
 
 ### Header
 - [ ] Application name along with the Page name should be shown in the header.
 
 ### Service
 - [x] Students API
-- [x] Departments API 
+- [x] Departments API

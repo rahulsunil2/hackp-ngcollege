@@ -1,11 +1,25 @@
-.example-card {
-    text-align: center;
-}
-
-span {
-    font-weight: 400;
+* {
+  color: white;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
+  color: black;
+}
+
+h3 {
+  span {
+    font-weight: 400;
+  }
+}
+
+mat-card {
+  padding: 5%;
+  border-radius: 20px;
+  background-color: #3F51B5;
+
+  mat-card-header {
+    // background-color: #3F51B5;
+    color: white;
+  }
 }
